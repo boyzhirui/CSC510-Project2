@@ -53,7 +53,7 @@ def secs(d0):
   return delta.total_seconds()
 
 def dump1(u,issues):
-  token = "9b242d9713de3d90254f6ef1924447af0c2fbe85" # <===
+  token = "3760e912cf5102cadf5b680c234ae858751e927f" # <===
   request = urllib2.Request(u, headers={"Authorization" : "token "+token})
   v = urllib2.urlopen(request).read()
   w = json.loads(v)
@@ -91,6 +91,8 @@ def launchDump():
   issues = dict()
   while(True):
     doNext = dump('https://api.github.com/repos/opensciences/opensciences.github.io/issues/events?page=' + str(page), issues)
+    #doNext = dump('https://api.github.com/repos/Arjun-Code-Knight/csc510-se-project/commits?page=1')
+
     print("page "+ str(page))
     page += 1
     if not doNext : break
