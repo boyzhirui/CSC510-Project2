@@ -51,46 +51,34 @@ def secs(d0):
     epoch = datetime.datetime.utcfromtimestamp(0)
     delta = d - epoch
     return delta.total_seconds()
- 
-def dump2(u,commits):
-    token = "78ce24416cc06770b35e43f50d01fd58d5a11680" # <===
+from datetime import time, datetime
+import dateutil.parser
+
+dates = {}
+prev_data = None
+def dump_commits(u,commits):
+    global dates, prev_data
+    token = "fdc02bd8ccae8c5edd61d9e6274487db0490926c" # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
     if not w: return False
-    for event in w:
-        # print(w)
-        print('0' + str(w[0]))
-        print('1' + str(w[1]))
-        # commit_msg = w['message']
-        # # committer_name = w['committer']['name']
-        # commit_sha = w['sha']
-        # # commit_date = w['committer']['date']
-        # print(commit_msg)
-        # # print(committer_name)
-        # print(commit_sha)
-        # print(commit_date)
-        # issue_id = event['issue']['number']
-        # if not event.get('label'): continue
-        # created_at = secs(event['created_at'])
-        # action = event['event']
-        # label_name = event['label']['name']
-        # user = event['actor']['login']
-        # milestone = event['issue']['milestone']
-        # if milestone != None : milestone = milestone['title']
-        # eventObj = L(when=created_at,
-        #                          action = action,
-        #                          what = label_name,
-        #                          user = user,
-        #                          milestone = milestone)
-        # all_events = issues.get(issue_id)
-        # if not all_events: all_events = []
-        # all_events.append(eventObj)
-        # issues[issue_id] = all_events
+    for commit in w:
+        commit_msg = commit['commit']['message']
+        committer_name = commit['commit']['committer']['name']
+        commit_sha = commit['sha']
+        commit_date = commit['commit']['committer']['date']
+        date = dateutil.parser.parse(commit_date)
+        if date.month not in dates:
+            dates[date.month] = {}
+        if date.day not in dates[date.month]:
+            dates[date.month][date.day] = ['%s/%s' %(date.month, date.day), 0]
+        dates[date.month][date.day][1] += 1
     return True
+    
 
 def dump1(u,issues):
-    token = "78ce24416cc06770b35e43f50d01fd58d5a11680" # <===
+    token = "afe23738bd0f24f3b15e632f3473363bd5733e33" # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
@@ -125,31 +113,38 @@ def dump(u,issues):
 import copy
 def launchDump():
     info = {}
-    links_to_repo = ['/nikign/Git-Helper']
-    # links_to_repo = ['/nikign/Git-Helper', '/Arjun-Code-Knight/csc510-se-project', '/ankitkumar93/csc510-se-project',
-    #     '/azhe825/CSC510', '/jordy-jose/CSC_510_group_d', '/DharmendraVaghela/csc510-grp-e',
-    #     '/moharnab123saikia/CSC510-group-f', '/cleebp/csc-510-group-g', '/nikign/SE-16', '/shivamgulati1991/CSC510-SE-group-i',
-    #     '/arnabsaha1011/mypackse', '/alokrk/csc510groupk', '/sandz-in/csc510_group_l',
-    #     '/nikraina/CSC510'] 
-        #'/gvivek19/CSC510-Team-N'
+    global dates
+    # links_to_repo = ['/nikign/Git-Helper']
+    links_to_repo = ['/Arjun-Code-Knight/csc510-se-project', '/ankitkumar93/csc510-se-project',
+        '/azhe825/CSC510', '/jordy-jose/CSC_510_group_d', '/DharmendraVaghela/csc510-grp-e',
+        '/moharnab123saikia/CSC510-group-f', '/cleebp/csc-510-group-g', '/nikign/SE-16', '/shivamgulati1991/CSC510-SE-group-i',
+        '/arnabsaha1011/mypackse', '/alokrk/csc510groupk', '/sandz-in/csc510_group_l',
+        '/nikraina/CSC510', '/gvivek19/CSC510-Team-N'] 
+        
     for link in links_to_repo:
         page = 1
         issues = dict()
         print ('link: %s' % link)
-        # while(True):
+        dates = {}
+        while(True):
             # use for time  time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(1454632798.0))
         # address = 'https://api.github.com/%s/graphs/contributors' % (link)
-        address = 'https://api.github.com/repos%s/commits' % (link)
+            address = 'https://api.github.com/repos%s/commits?page=%d' % (link, page)
             # address = 'https://api.github.com/repos%s/issues/events?page=%d' % (link, page)
-        doNext = dump2(address, issues)
+            doNext = dump_commits(address, issues)
+            # print(doNext)
             # print("page "+ str(page))
-            # page += 1
-            # if not doNext : break
-        info[link] = copy.deepcopy(issues)
-        for issue, events in issues.iteritems():
-            print("ISSUE " + str(issue))
-            for event in events: print(event.show())
-            print('')
+            page += 1
+            if not doNext : break
+        for k in dates.keys():
+            # print(k)
+            for kk in dates[k].keys():
+                print('%s\t%d' %(dates[k][kk][0], dates[k][kk][1]))
+        # info[link] = copy.deepcopy(issues)
+        # for issue, events in issues.iteritems():
+        #     print("ISSUE " + str(issue))
+        #     for event in events: print(event.show())
+        #     print('')
         # print(str(info[link]))
         
 launchDump()
