@@ -149,15 +149,15 @@ def dump_contributor(u,issues):
     print("Contributor, " + ', '.join(map(str,res_contributor)))
     print("Total Commits, " + ', '.join(map(str,res_totalCommits)))
 
-    total_commits = sum(res_totalCommits)
-    total_commits = float(total_commits)
-    percent_commits = []
-    for temp in res_totalCommits:
-        percent_commits.append(round(temp/total_commits,3))
+    #total_commits = sum(res_totalCommits)
+    #total_commits = float(total_commits)
+    #percent_commits = []
+    #for temp in res_totalCommits:
+    #    percent_commits.append(round(temp/total_commits,3))
 
-    print("Commits Contribution, " + ', '.join(map(str,percent_commits)))
-    for i in range(1,len(res_time)):
-        print(res_time[i] + "," + ','.join(map(str,(map(list,zip(*res_commits))[i]))))
+    #print("Commits Contribution, " + ', '.join(map(str,percent_commits)))
+    #for i in range(1,len(res_time)):
+    #    print(res_time[i] + "," + ','.join(map(str,(map(list,zip(*res_commits))[i]))))
     #print(res_commits[0:4][0])
     print()
     return True
@@ -260,15 +260,15 @@ def launchDump():
             # use for time  time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(1454632798.0))
         # address = 'https://api.github.com/%s/graphs/contributors' % (link)
         #address = 'https://api.github.com/repos%s/commits' % (link)
-        #contributor_address = 'https://api.github.com/repos%s/stats/contributors' % (link)
-        milestone_address = 'https://api.github.com/repos%s/milestones?state=all' % (link)
+        contributor_address = 'https://api.github.com/repos%s/stats/contributors' % (link)
+        #milestone_address = 'https://api.github.com/repos%s/milestones?state=all' % (link)
         #test_address = 'https://api.github.com/repos%s/issues?state=all&page=1&per_page=1000' % (link)
 
         #doNext = dump2(address, issues)
-        #doNext = dump_contributor(contributor_address, issues)
+        doNext = dump_contributor(contributor_address, issues)
         #dump_totalCommits(contributor_address)
 
-        doNext = dump_milestone(milestone_address,link)
+        #doNext = dump_milestone(milestone_address,link)
         #doNext = dump_test(test_address)
         #print(time.strftime('%Y-%m-%d', time.localtime(1454632798.0)))
 

@@ -54,6 +54,11 @@ for(i in 1:M)
         print(j)
         print("Closed Issues Early Warning: You are falling behind, you may need to put more effort")
       }
+      else if(closeIssue_z[i,][j]<(-1))
+      {
+        print(j)
+        print("Closed Issues Early Warning: You are falling behind, you may need to put more effort!")
+      }
     }
   }
 }
@@ -77,9 +82,14 @@ for(i in 1:M)
   for(j in 2:N)
   {
     if(openIssue_logic[i,][j]){
-      if(commits_logic[i,][(j-1)]){
+      if(openIssue_logic[i,][(j-1)]){
         print(j)
         print("Open Issues Early Warning: You are falling behind, you may need to put more effort")
+      }
+      else if(openIssue_z[i,][j]<(-1))
+      {
+        print(j)
+        print("Open Issues Early Warning: You are falling behind, you may need to put more effort!")
       }
     }
   }

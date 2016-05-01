@@ -1,0 +1,33 @@
+Groupname: /sandz-in/csc510_group_l 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,1
+Number of issues assigned to each person,{14265368: 1, 11071092: 9, 5220965: 18, 14361973: 2, 14164383: 2}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,56 
+Issues last time,[100.5078, 164.7475, 0.3511, 3.9831, 4.0047, 0.1061, 0.1789, 0.8086, 29.3247, 37.1856, 262.9811, 265.345, 35.7067, 249.9453, 345.0286, 76.8156, 384.6908, 0.0011, 91.1239, 69.2147, 0.0314, 0.0028, 74.2044, 0.9494, 3.3014, 3.4736, 1.5494, 11.7611, 204.3608, 126.5586, 230.76, 234.8875, 242.6892, 239.1247, 320.4422, 320.5239, 0.3511, 2.3178, 83.4742, 86.2086, 0.0033, 93.7619, 341.9019, 44.3186, 459.61, 397.0564, 185.3006, 186.6814, 429.9661, 101.5617, 66.5186, 88.5403, 25.7258, 160.7064, 0.0097, 262.8194]
+Issues opened per week,[0, 0, 0, 4, 9, 13, 2, 11, 0, 3, 0, 13, 1]
+Issues closed per week,[0, 0, 0, 1, 4, 11, 0, 23, 0, 1, 0, 11, 5]
+Unusual weekly activity of open too many issues or none issue,2
+Unusual weekly activity of close too many issues or none issue,1
+Number and percentage of Issues with unusually long or short  lasting time, 6 , 10% 
+Number of unclosed issues after April 9, 0 
+Number and percentage of issues closed after milestone deadline, 21 
+Number and Percentage of issues without comments, 15, 26% 
+ Number and Percentage of issues without milestone label, 8, 14% 
+Number and Percentage of issues without any label, 9, 16% 
+Number and Percentage of issues without assignee, 24, 42% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 12 
+Amount of time each label lasting, {u'REST API': [320.4422, 320.5239, 0.3511, 2.3178, 83.4742, 86.2086], u'models': [429.9661, 101.5617], u'web-application': [0.1789, 320.4422, 320.5239, 0.3511, 2.3178, 83.4742, 86.2086, 186.6814, 429.9661, 101.5617, 66.5186, 88.5403], u'solution_:_smsFeed': [384.6908, 11.7611, 239.1247], u'telemetry': [100.5078, 3.9831, 4.0047, 0.8086, 37.1856, 35.7067], u'solution_:_imageScan': [262.9811, 265.345, 249.9453], u'solution_:_voiceInput': [0.3511, 345.0286], u'enhancement': [0.1789, 29.3247, 37.1856, 265.345, 35.7067, 345.0286, 76.8156, 384.6908, 69.2147, 1.5494], u'android': [164.7475, 0.3511, 0.1789, 35.7067, 249.9453, 345.0286, 76.8156, 384.6908, 91.1239, 69.2147, 74.2044, 0.9494, 3.3014, 3.4736, 1.5494, 11.7611, 204.3608, 126.5586, 239.1247, 459.61, 397.0564, 25.7258, 160.7064], u'solution_manual_interface': [0.9494, 1.5494, 230.76, 234.8875, 341.9019, 262.8194], u'trivial': [0.1061], u'bug': [164.7475, 262.9811, 0.9494]}
+Number of counts each label were used,{u'REST API': 6, u'models': 2, u'web-application': 12, u'solution_:_smsFeed': 3, u'telemetry': 6, u'solution_:_imageScan': 3, u'solution_:_voiceInput': 2, u'enhancement': 10, u'android': 23, u'solution_manual_interface': 6, u'trivial': 1, u'bug': 3}
+Number of unused labels counts, 0 

@@ -1,0 +1,33 @@
+Groupname: /gvivek19/CSC510-Team-N 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,1
+Number of issues assigned to each person,{7236729: 13, 1935323: 13, 2167789: 18, 7264225: 3}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,95 
+Issues last time,[23.7794, 23.8014, 23.8314, 25.3881, 0.9294, 0.63, 0.1592, 0.0022, 0.0011, 0.0022, 0.4606, 44.6164, 0.0017, 0.0022, 0.0014, 46.4831, 0.0017, 0.0008, 0.0014, 0.0011, 1.1844, 0.0017, 0.0011, 0.0017, 21.1992, 0.0031, 0.0008, 19.615, 19.8203, 0.0017, 0.0078, 0.0019, 0.0011, 0.0011, 0.0008, 0.0042, 4.2044, 2.795, 0.1978, 0.0008, 0.0011, 0.0008, 0.0017, 0.0014, 1.1631, 0.0078, 45.2469, 85.9689, 45.32, 42.06, 45.3706, 45.3519, 18.0214, 24.5253, 17.2108, 23.8122, 20.8028, 0.0014, 15.8875, 0.0011, 0.0483, 0.0122, 0.0036, 90.5117, 51.0492, 0.1542, 25.78, 25.8036, 0.0008, 0.0019, 70.6161, 22.6383, 1.6436, 0.0028, 0.8514, 2.0158, 50.3733, 49.9981, 50.3881, 172.9228, 1.0464, 244.6086, 245.5289, 72.2525, 72.2719, 72.3206, 217.9819, 194.2061, 245.5094, 72.7394, 72.1203, 187.8944, 550.7239, 335.0197]
+Issues opened per week,[0, 0, 2, 1, 0, 0, 15, 69, 0, 0, 0, 0, 7]
+Issues closed per week,[0, 0, 0, 0, 2, 0, 10, 75, 0, 0, 0, 0, 7]
+Unusual weekly activity of open too many issues or none issue,1
+Unusual weekly activity of close too many issues or none issue,1
+Number and percentage of Issues with unusually long or short  lasting time, 9 , 9% 
+Number of unclosed issues after April 9, 1 
+Number and percentage of issues closed after milestone deadline, 28 
+Number and Percentage of issues without comments, 66, 69% 
+ Number and Percentage of issues without milestone label, 66, 69% 
+Number and Percentage of issues without any label, 42, 44% 
+Number and Percentage of issues without assignee, 48, 50% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 12 
+Amount of time each label lasting, {u'ProjectPlanning': [245.5289, 72.7394, 72.1203, 187.8944, 335.0197], u'PDF solution': [21.1992], u'Documentation': [23.7794, 23.8014, 23.8314, 25.3881], u'Integration': [0.4606, 44.6164], u'Notification/Calendar solution': [244.6086], u'database': [2.0158], u'API': [4.2044, 2.795, 24.5253, 17.2108, 23.8122, 20.8028, 15.8875, 25.78, 25.8036, 1.6436], u'UI': [19.615, 19.8203, 4.2044, 0.1978, 45.2469, 85.9689, 45.32, 42.06, 45.3706, 45.3519, 18.0214, 90.5117, 51.0492, 70.6161, 22.6383, 0.8514], u'enhancement': [172.9228], u'design': [50.3733, 49.9981, 50.3881, 1.0464, 72.2525, 72.2719, 72.3206, 217.9819, 194.2061], u'bug': [0.9294, 0.63, 0.1592], u'solutions': [172.9228, 245.5094]}
+Number of counts each label were used,{u'ProjectPlanning': 5, u'PDF solution': 1, u'Documentation': 4, u'Integration': 2, u'Notification/Calendar solution': 1, u'database': 1, u'API': 10, u'UI': 16, u'enhancement': 1, u'design': 9, u'bug': 3, u'solutions': 2}
+Number of unused labels counts, 1 
