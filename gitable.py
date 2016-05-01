@@ -24,6 +24,7 @@ Copy the value for that key and paste it on line marked "token" in the attached 
          python gitable.py
 
 """
+TOKEN = 'REMOVED'
  
 from __future__ import print_function
 import urllib2
@@ -74,7 +75,7 @@ prev_data = None
 name_id_map = {}
 def dump_commits(u):
     global dates, prev_data, users, commitsOpenPerWeek
-    token = "1368f9fb884de63474ff11fbe80457f93f210962" # <===
+    token = TOKEN # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
@@ -99,7 +100,7 @@ def dump_commits(u):
 users = {}
 def dump_comments(u):
     global dates, prev_data, users, commentsOpenPerWeek
-    token = "1368f9fb884de63474ff11fbe80457f93f210962" # <===
+    token = TOKEN # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
@@ -221,7 +222,7 @@ total_users = {}
 def fill_group_users(link):
     global users, total_users
     address = 'https://api.github.com/repos%s/stats/contributors' % link
-    token = "1368f9fb884de63474ff11fbe80457f93f210962" # <===
+    token = TOKEN # <===
     request = urllib2.Request(address, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
@@ -239,7 +240,7 @@ def count_issues():
 
     for link in links_to_repo:
         issue_address = 'https://api.github.com/repos%s/issues?state=all&page=1&per_page=1000' % (link)
-        token = "1368f9fb884de63474ff11fbe80457f93f210962" # <===
+        token = TOKEN # <===
         request = urllib2.Request(issue_address, headers={"Authorization" : "token "+token})
         v = urllib2.urlopen(request).read()
         w = json.loads(v)
