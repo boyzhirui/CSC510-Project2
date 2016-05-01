@@ -1,0 +1,33 @@
+Groupname: /shivamgulati1991/CSC510-SE-group-i 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,1
+Number of issues assigned to each person,{11819791: 10, 14206806: 14, 16611558: 11, 13879303: 11}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,52 
+Issues last time,[1.9172, 43.8319, 46.6869, 46.8539, 43.8864, 99.4875, 99.5808, 50.7683, 97.6894, 757.6964, 757.7264, 21.1183, 805.1208, 18.3561, 0.1619, 813.1381, 8.3503, 22.9853, 6.5556, 1.1397, 43.6819, 20.0911, 49.0903, 4.9144, 22.9681, 46.5853, 854.2575, 44.6278, 3.5822, 73.8672, 127.4922, 120.7019, 191.8158, 217.855, 190.6186, 211.6469, 188.3322, 188.5231, 525.2017, 525.5019, 1465.0064, 1465.0481, 364.6986, 72.3244, 558.1283, 558.1642, 10.8669, 0.2822, 322.9936, 323.0317, 469.5675, 146.49]
+Issues opened per week,[2, 2, 0, 8, 2, 0, 8, 21, 0, 0, 0, 0, 9]
+Issues closed per week,[0, 1, 0, 5, 1, 0, 1, 28, 0, 0, 0, 0, 16]
+Unusual weekly activity of open too many issues or none issue,1
+Unusual weekly activity of close too many issues or none issue,1
+Number and percentage of Issues with unusually long or short  lasting time, 5 , 9% 
+Number of unclosed issues after April 9, 0 
+Number and percentage of issues closed after milestone deadline, 21 
+Number and Percentage of issues without comments, 11, 21% 
+ Number and Percentage of issues without milestone label, 2, 3% 
+Number and Percentage of issues without any label, 8, 15% 
+Number and Percentage of issues without assignee, 6, 11% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 7 
+Amount of time each label lasting, {u'Implementation': [21.1183, 0.1619, 22.9853, 1.1397, 49.0903, 22.9681, 120.7019, 217.855, 190.6186, 211.6469, 188.3322, 188.5231, 525.2017, 525.5019], u'Discussion': [43.8319, 46.8539, 43.8864, 99.4875, 99.5808, 50.7683, 97.6894, 757.6964, 757.7264, 43.6819, 20.0911, 127.4922, 1465.0064, 1465.0481, 558.1283, 558.1642], u'testing': [43.8319, 43.8864, 99.5808, 813.1381], u'bug': [805.1208, 8.3503, 6.5556, 49.0903, 4.9144, 3.5822, 73.8672, 191.8158, 188.3322], u'enhancement': [1.1397, 22.9681, 46.5853, 854.2575, 44.6278], u'Report': [1.9172, 43.8319, 46.6869, 46.8539, 43.8864, 99.4875], u'proj1 feedback': [757.6964, 757.7264, 10.8669]}
+Number of counts each label were used,{u'Implementation': 14, u'Discussion': 16, u'testing': 4, u'bug': 9, u'enhancement': 5, u'Report': 6, u'proj1 feedback': 3}
+Number of unused labels counts, 0 

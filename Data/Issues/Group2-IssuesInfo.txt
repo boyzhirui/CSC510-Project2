@@ -1,0 +1,33 @@
+Groupname: /azhe825/CSC510 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,0
+Number of issues assigned to each person,{3458568: 5, 15117843: 4, 7918460: 3, 13929197: 6}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,66 
+Issues last time,[317.4383, 43.1058, 69.8019, 403.8147, 403.8619, 132.1403, 73.9869, 47.7606, 47.7878, 0.7994, 392.7833, 392.7914, 392.8511, 392.9467, 393.0167, 707.4011, 783.6042, 789.2622, 789.2656, 702.0914, 788.5356, 874.9208, 748.6919, 748.7011, 748.7106, 793.5256, 1154.4022, 838.4203, 1199.3678, 1200.1664, 1212.9153, 1222.4283, 839.8022, 92.7997, 1269.9122, 116.4453, 116.8794, 118.7094, 141.7739, 0.0972, 181.6153, 191.3247, 200.1547, 208.6825, 219.8689, 220.7333, 569.5919, 354.8292, 282.3597, 650.4564, 567.8033, 642.1678, 641.7358, 368.5692, 1932.5472, 437.7172, 457.4767, 505.6975, 521.9478, 817.8072, 817.8697]
+Issues opened per week,[3, 0, 3, 6, 0, 3, 12, 18, 1, 5, 0, 4, 6]
+Issues closed per week,[0, 0, 0, 1, 0, 6, 1, 17, 1, 0, 0, 1, 24]
+Unusual weekly activity of open too many issues or none issue,1
+Unusual weekly activity of close too many issues or none issue,2
+Number and percentage of Issues with unusually long or short  lasting time, 7 , 10% 
+Number of unclosed issues after April 9, 15 
+Number and percentage of issues closed after milestone deadline, 15 
+Number and Percentage of issues without comments, 31, 46% 
+ Number and Percentage of issues without milestone label, 48, 72% 
+Number and Percentage of issues without any label, 34, 51% 
+Number and Percentage of issues without assignee, 48, 72% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 7 
+Amount of time each label lasting, {u'1. Task': [inf, 43.1058, 392.7833, 392.7914, 392.8511, 392.9467, 393.0167, 874.9208, 748.6919, 748.7011, 748.7106, 839.8022, 354.8292, 282.3597, 650.4564, 567.8033, 642.1678, 641.7358], u'bug': [73.9869, 1222.4283], u'3. Results': [788.5356, 1200.1664, 1212.9153, 1222.4283], u'enhancement': [707.4011, 793.5256], u'Suggestion': [707.4011, 783.6042, 1199.3678, 839.8022, 92.7997, 1269.9122, 116.4453], u'proj1 feedback': [702.0914, 368.5692], u'help wanted': [839.8022]}
+Number of counts each label were used,{u'1. Task': 18, u'bug': 2, u'3. Results': 4, u'enhancement': 2, u'Suggestion': 7, u'proj1 feedback': 2, u'help wanted': 1}
+Number of unused labels counts, 1 

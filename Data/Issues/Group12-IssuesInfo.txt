@@ -1,0 +1,33 @@
+Groupname: /nikraina/CSC510 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,0
+Number of issues assigned to each person,{11073736: 9, 15313236: 1, 14263294: 16, '14355734': 0}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,53 
+Issues last time,[0.0014, 0.0014, 0.0017, 0.1786, 0.2006, 21.645, 31.3072, 31.6458, 0.9928, 113.4567, 24.3044, 24.3061, 154.6372, 181.0353, 41.7333, 0.6925, 0.7503, 0.1142, 164.4228, 164.5219, 164.7394, 0.0019, 0.0022, 27.8431, 0.0011, 0.17, 0.0011, 0.3208, 0.0017, 0.9114, 0.0008, 12.4664, 0.1042, 0.0011, 0.0475, 0.0019, 0.3228, 0.0017, 0.2214, 0.9181, 3.3167, 0.095, 51.5656, 97.0864, 347.8583, 347.9064, 348.4181, 0.5458, 50.0406, 388.9822]
+Issues opened per week,[1, 0, 0, 1, 0, 5, 31, 12, 0, 0, 0, 0, 0]
+Issues closed per week,[0, 0, 0, 2, 0, 1, 26, 21, 0, 0, 0, 0, 0]
+Unusual weekly activity of open too many issues or none issue,1
+Unusual weekly activity of close too many issues or none issue,2
+Number and percentage of Issues with unusually long or short  lasting time, 4 , 7% 
+Number of unclosed issues after April 9, 3 
+Number and percentage of issues closed after milestone deadline, 9 
+Number and Percentage of issues without comments, 16, 30% 
+ Number and Percentage of issues without milestone label, 29, 54% 
+Number and Percentage of issues without any label, 28, 52% 
+Number and Percentage of issues without assignee, 27, 50% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 4 
+Amount of time each label lasting, {u'help wanted': [12.4664], u'question': [inf, 164.4228, 164.5219, inf, 347.8583], u'bug': [0.1786, 31.3072, 31.6458, 113.4567, 0.0475, 0.3228, 0.9181], u'enhancement': [0.2006, 0.9928, 24.3044, 24.3061, 154.6372, 181.0353, 164.7394, 0.17, 0.3208, 0.9114, 0.1042, 3.3167]}
+Number of counts each label were used,{u'help wanted': 1, u'question': 5, u'bug': 7, u'enhancement': 12}
+Number of unused labels counts, 0 

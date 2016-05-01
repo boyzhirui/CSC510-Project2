@@ -1,0 +1,33 @@
+Groupname: /DharmendraVaghela/csc510-grp-e 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,0
+Number of issues assigned to each person,{14171492: 11, 12976588: 7, 13034542: 2, 16674177: 14}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,57 
+Issues last time,[0.0011, 438.9919, 22.6708, 482.2119, 21.4967, 21.5442, 21.5675, 21.5694, 21.6067, 21.6133, 0.0025, 76.1644, 101.3378, 98.9194, 143.4261, 141.0011, 42.2592, 42.2614, 0.0086, 762.4858, 2.3914, 0.0047, 0.0097, 0.0011, 0.0011, 0.0019, 0.0017, 0.0053, 0.0017, 792.035, 0.7128, 31.7908, 750.9256, 31.9544, 0.0025, 0.0061, 0.0017, 58.2453, 59.0181, 70.4989, 38.9017, 0.0014, 0.0064, 66.2478, 258.0425, 287.7614, 288.5294, 146.1103, 288.6325, 0.0028, 289.2206, 1.7417, 260.3086, 0.0119, 0.0803, 2.5528, 15.5056]
+Issues opened per week,[0, 0, 0, 1, 0, 12, 1, 25, 0, 0, 0, 4, 14]
+Issues closed per week,[0, 0, 0, 1, 0, 5, 1, 29, 0, 0, 0, 1, 18]
+Unusual weekly activity of open too many issues or none issue,1
+Unusual weekly activity of close too many issues or none issue,2
+Number and percentage of Issues with unusually long or short  lasting time, 5 , 8% 
+Number of unclosed issues after April 9, 2 
+Number and percentage of issues closed after milestone deadline, 4 
+Number and Percentage of issues without comments, 35, 61% 
+ Number and Percentage of issues without milestone label, 47, 82% 
+Number and Percentage of issues without any label, 16, 28% 
+Number and Percentage of issues without assignee, 23, 40% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 5 
+Amount of time each label lasting, {u'duplicate': [792.035, 31.7908], u'question': [143.4261, 141.0011, 0.0086, 0.0047, 0.0097, 31.7908, 750.9256, 38.9017, 66.2478, 287.7614, 289.2206, 1.7417, 260.3086, 15.5056], u'enhancement': [22.6708, 482.2119, 21.4967, 21.5442, 21.5675, 21.5694, 21.6067, 21.6133, 76.1644, 143.4261, 141.0011, 42.2592, 42.2614, 0.0086, 762.4858, 0.0047, 0.0097, 0.0019, 0.0017, 792.035, 31.7908, 750.9256, 146.1103, 1.7417], u'bug': [0.0025, 98.9194, 143.4261], u'help wanted': [22.6708, 21.5694, 21.6133, 101.3378, 141.0011, 0.0086, 2.3914, 0.0047, 0.0097, 750.9256, 31.9544, 58.2453, 59.0181, 70.4989, 66.2478, 288.5294, 288.6325, 1.7417, 0.0803]}
+Number of counts each label were used,{u'duplicate': 2, u'question': 14, u'enhancement': 24, u'bug': 3, u'help wanted': 19}
+Number of unused labels counts, 0 
