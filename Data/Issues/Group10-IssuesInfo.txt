@@ -1,0 +1,33 @@
+Groupname: /alokrk/csc510groupk 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,0
+Number of issues assigned to each person,{13966224: 3, 14881460: 4, 16656403: 6, 8142804: 5}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,32 
+Issues last time,[238.0711, 290.3056, 382.9403, 554.1386, 1046.3467, 0.0017, 1243.4611, 424.7797, 1123.6181, 0.3117, 0.1386, 65.3975, 1318.7458, 173.3083, 3.2544, 1596.255, 218.5886, 273.1394, 80.2181, 0.0022, 0.0025, 714.9836, 578.615, 551.0758, 191.1556, 0.0039, 69.8553, 71.5347, 547.0319, 173.4464]
+Issues opened per week,[0, 0, 3, 4, 1, 6, 9, 3, 0, 2, 0, 1, 1]
+Issues closed per week,[0, 0, 0, 4, 1, 4, 4, 6, 0, 2, 0, 1, 1]
+Unusual weekly activity of open too many issues or none issue,1
+Unusual weekly activity of close too many issues or none issue,1
+Number and percentage of Issues with unusually long or short  lasting time, 4 , 12% 
+Number of unclosed issues after April 9, 9 
+Number and percentage of issues closed after milestone deadline, 13 
+Number and Percentage of issues without comments, 8, 25% 
+ Number and Percentage of issues without milestone label, 6, 18% 
+Number and Percentage of issues without any label, 10, 31% 
+Number and Percentage of issues without assignee, 14, 43% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 5 
+Amount of time each label lasting, {u'enhancement': [65.3975, 1318.7458, inf, 1596.255, 578.615], u'requirement': [238.0711, 1046.3467, 1123.6181, 218.5886, 273.1394, 714.9836, 578.615, 551.0758, 191.1556, 71.5347, 547.0319, 173.4464], u'question': [238.0711, 424.7797, 173.3083], u'help wanted': [382.9403], u'bug': [424.7797, 0.3117, inf, 0.1386]}
+Number of counts each label were used,{u'enhancement': 5, u'requirement': 12, u'question': 3, u'help wanted': 1, u'bug': 4}
+Number of unused labels counts, 0 

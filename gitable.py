@@ -24,6 +24,7 @@ Copy the value for that key and paste it on line marked "token" in the attached 
          python gitable.py
 
 """
+TOKEN = 'REMOVED'
  
 from __future__ import print_function
 import urllib2
@@ -45,41 +46,61 @@ class L():
         lst = [str(k)+" : "+str(v) for k,v in i.__dict__.iteritems() if v != None]
         return ',\t'.join(map(str,lst))
 
-    
+def count_in_week(openTime, time_list):
+    global weekTime
+    for i in xrange(len(time_list)):
+        if weekTime[i] <= openTime <= weekTime[i+1]:
+            time_list[i] += 1
+            break
+
+
+def def_weeks():
+    global commentsOpenPerWeek, commitsOpenPerWeek, weekTime
+    projectStart = datetime.strptime('2016-01-09T00:00:00Z', '%Y-%m-%dT%H:%M:%SZ')
+    weekTime = [projectStart]
+    for i in xrange(1,14):
+        weekTime.append(weekTime[i-1]+ timedelta(days =7))
+    commitsOpenPerWeek = [0]*13
+    commentsOpenPerWeek = [0]*13
+
 def secs(d0):
     d     = datetime.datetime(*map(int, re.split('[^\d]', d0)[:-1]))
     epoch = datetime.datetime.utcfromtimestamp(0)
     delta = d - epoch
     return delta.total_seconds()
-from datetime import time, datetime
+from datetime import time, datetime, timedelta
 import dateutil.parser
 
-dates = {}
 prev_data = None
-def dump_commits(u,commits):
-    global dates, prev_data
-    token = "cda87dde4e88524c3d614ba984f42621b2b13194" # <===
+name_id_map = {}
+def dump_commits(u):
+    global dates, prev_data, users, commitsOpenPerWeek
+    token = TOKEN # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
     if not w: return False
     for commit in w:
-        commit_msg = commit['commit']['message']
-        committer_name = commit['commit']['committer']['name']
-        commit_sha = commit['sha']
+        if commit['author'] is None:
+            if 'None' not in users:
+                users['None'] = 0
+            users['None'] += 1
+            continue  
+        committer_id = commit['author']['id']
         commit_date = commit['commit']['committer']['date']
         date = dateutil.parser.parse(commit_date)
-        if date.month not in dates:
-            dates[date.month] = {}
-        if date.day not in dates[date.month]:
-            dates[date.month][date.day] = ['%s/%s' %(date.month, date.day), 0]
-        dates[date.month][date.day][1] += 1
+        naive = date.replace(tzinfo=None)
+        count_in_week(naive, commitsOpenPerWeek)
+        if committer_id not in users:
+            continue
+        users[committer_id] += 1
+
     return True
 
 users = {}
 def dump_comments(u):
-    global dates, prev_data, users
-    token = "cda87dde4e88524c3d614ba984f42621b2b13194" # <===
+    global dates, prev_data, users, commentsOpenPerWeek
+    token = TOKEN # <===
     request = urllib2.Request(u, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
@@ -87,12 +108,14 @@ def dump_comments(u):
     for comment in w:
         user = comment['user']['id']
         if user not in users:
-            print('%s not found ' %comment['user']['login'])
             continue
-        # if user not in users:
-        #     users[user] = 0
+
+        print( comment.keys())
+        date = comment['created_at']
+        date = dateutil.parser.parse(date)
+        naive = date.replace(tzinfo=None)
+        count_in_week(naive, commentsOpenPerWeek)
         users[user] += 1
-    # print(str(users))
     return True
     
 
@@ -131,97 +154,125 @@ def dump(u,issues):
         return False
 import copy
 def dumpCommits():
-    info = {}
-    global dates
-    links_to_repo = ['/nikign/Git-Helper']
-    # links_to_repo = ['/Arjun-Code-Knight/csc510-se-project', '/ankitkumar93/csc510-se-project',
-    #     '/azhe825/CSC510', '/jordy-jose/CSC_510_group_d', '/DharmendraVaghela/csc510-grp-e',
-    #     '/moharnab123saikia/CSC510-group-f', '/cleebp/csc-510-group-g', '/nikign/SE-16', '/shivamgulati1991/CSC510-SE-group-i',
-    #     '/arnabsaha1011/mypackse', '/alokrk/csc510groupk', '/sandz-in/csc510_group_l',
-    #     '/nikraina/CSC510', '/gvivek19/CSC510-Team-N'] 
-        
-    for link in links_to_repo:
-        page = 1
-        issues = dict()
-        print ('link: %s' % link)
-        dates = {}
-        while(True):
-            address = 'https://api.github.com/repos%s/commits?page=%d' % (link, page)
-            doNext = dump_commits(address, issues)
-            page += 1
-            if not doNext : break
-        for k in dates.keys():
-            for kk in dates[k].keys():
-                print('%s\t%d' %(dates[k][kk][0], dates[k][kk][1]))
 
-# from statistics import sdev, mean
+    info = {}
+
+    global dates, users, links_to_repo, commitsOpenPerWeek
+        
+    groups = {}
+    with open("commit_out.txt", 'w') as out:
+        for link in links_to_repo:
+            def_weeks()
+            page = 1
+            users = {}
+            fill_group_users(link)
+            while(True):
+                address = 'https://api.github.com/repos%s/commits?page=%d' % (link, page)
+                doNext = dump_commits(address)
+                page += 1
+                if not doNext : break
+            out.write('%s\t%s\n' %(link, str(commitsOpenPerWeek)))
+
+        for user in users.keys():
+            print('%s\t%d' %(user, users[user]))
+
+        mean = numpy.mean(users.values())
+        sdev = numpy.std(users.values())
+
+        scores = [(user - mean)/(1.0*sdev) for user in users.values() if user is not 'None']
+        bad_smell = 0
+        for score in scores:
+            if score < -1.5 or score > 1.5:
+                bad_smell = 1
+                break
+        if bad_smell:
+            print('Group %s has bad smell' % link)
+        group_count = len(users.values()) if 'None' not in users.keys() else len(users.values())-1
+        none_count = users['None'] if 'None' in users else 0
+        groups[link] = (bad_smell, sum(users.values())*1.0/group_count, none_count)
+    find_outlier_groups(groups)
+    max_sum = max([group[1] for group in groups.values()])
+    print("group name\toutlier in group commits\ttotal commits\tNone Author commits")
+    for link in groups:
+        bad_smell2 = 1 - (groups[link][1]*1.0)/max_sum
+        print("%s\t%f\t%f\t%d" %(link, groups[link][0], bad_smell2, groups[link][2]))
+    
+
 import numpy
 def find_outlier_groups(groups):
-       
-    # outlier of sdevs
-    groups_sdev = [i[0] for i in groups.values()]
+
+    # groups_sdev = [i[0] for i in groups.values()]
     groups_sum = [i[1] for i in groups.values()]
 
     sum_sdev = numpy.std(numpy.array(groups_sum))
     sum_mean = numpy.mean(numpy.array(groups_sum))
 
-    total_sdev = numpy.std(numpy.array(groups_sdev))
-    total_mean = numpy.mean(numpy.array(groups_sdev))
+    # total_sdev = numpy.std(numpy.array(groups_sdev))
+    # total_mean = numpy.mean(numpy.array(groups_sdev))
     for group in groups.keys():
         group_sum_score = (groups[group][1] - sum_mean)/(1.0*sum_sdev)
-        group_sdev_score = (groups[group][0] - total_mean)/(1.0*total_sdev)
-        print('group: %s, sdev score: %f, sum score: %f' %(group, group_sdev_score, group_sum_score))
-        if group_sdev_score > 1.5 or group_sdev_score < -1.5:
-            print('Group with much sdev: %s' %group)
+        # group_sdev_score = (groups[group][0] - total_mean)/(1.0*total_sdev)
+        # print('group: %s, sdev score: %f, sum score: %f' %(group, group_sdev_score, group_sum_score))
+        # if group_sdev_score > 1.5 or group_sdev_score < -1.5:
+        #     print('Group with much sdev: %s' %group)
         if group_sum_score < -1.5:
             print('Group with low comments: %s' %group)
 
+total_users = {}
 def fill_group_users(link):
-    global users
+    global users, total_users
     address = 'https://api.github.com/repos%s/stats/contributors' % link
-    # print(address)
-    # /repos/:owner/:repo/collaborators
-    token = "cda87dde4e88524c3d614ba984f42621b2b13194" # <===
+    token = TOKEN # <===
     request = urllib2.Request(address, headers={"Authorization" : "token "+token})
     v = urllib2.urlopen(request).read()
     w = json.loads(v)
     if not w: return False
     user_ids = [ww['author']['id'] for ww in w]
+    user_keys = [(ww['author']['id'], ww['author']['login']) for ww in w]
+    total_users[link] = user_ids
     for user_id in user_ids:
         users[user_id] = 0
-
-    # print(user_ids)
-    # for user_ids
     
             
+issues = {}
+def count_issues():
+    global issues, links_to_repo
+
+    for link in links_to_repo:
+        issue_address = 'https://api.github.com/repos%s/issues?state=all&page=1&per_page=1000' % (link)
+        token = TOKEN # <===
+        request = urllib2.Request(issue_address, headers={"Authorization" : "token "+token})
+        v = urllib2.urlopen(request).read()
+        w = json.loads(v)
+        issues[link] = len(w)
+    print(str(issues))
+    
 
 
-
+links_to_repo = ['/Arjun-Code-Knight/csc510-se-project', '/ankitkumar93/csc510-se-project',
+    '/azhe825/CSC510', '/jordy-jose/CSC_510_group_d', '/DharmendraVaghela/csc510-grp-e',
+    '/moharnab123saikia/CSC510-group-f', '/cleebp/csc-510-group-g', '/nikign/SE-16', '/shivamgulati1991/CSC510-SE-group-i',
+    '/arnabsaha1011/mypackse', '/alokrk/csc510groupk', '/sandz-in/csc510_group_l',
+    '/nikraina/CSC510', '/gvivek19/CSC510-Team-N'] 
 def dumpComments():
     info = {}
-    global dates, users
-    # links_to_repo = ['/ankitkumar93/csc510-se-project']
-    links_to_repo = ['/Arjun-Code-Knight/csc510-se-project', '/ankitkumar93/csc510-se-project',
-        '/azhe825/CSC510', '/jordy-jose/CSC_510_group_d', '/DharmendraVaghela/csc510-grp-e',
-        '/moharnab123saikia/CSC510-group-f', '/cleebp/csc-510-group-g', '/nikign/SE-16', '/shivamgulati1991/CSC510-SE-group-i',
-        '/arnabsaha1011/mypackse', '/alokrk/csc510groupk', '/sandz-in/csc510_group_l',
-        '/nikraina/CSC510', '/gvivek19/CSC510-Team-N'] 
-        
+    global dates, users, links_to_repo, issues, commentsOpenPerWeek
+    count_issues()
     groups = {}
-    for link in links_to_repo:
-        page = 1
-        users = {}
-        fill_group_users(link)
-        while(True):
-            # address = 'https://api.github.com/repos%s/commits?page=%d' % (link, page)
-            # doNext = dump_commits(address, issues)
-            # dates = {}
-            address = 'https://api.github.com/repos%s/issues/comments?page=%d' % (link, page)
-            doNext = dump_comments(address)
-            print('page: %d' % page)
-            page += 1
-            if not doNext : break
-            issues = dict()
+
+    with open("comment_out.txt", 'w') as out:
+        for link in links_to_repo:
+            page = 1
+            users = {}
+            fill_group_users(link)
+            def_weeks()
+            while(True):
+                address = 'https://api.github.com/repos%s/issues/comments?page=%d' % (link, page)
+                doNext = dump_comments(address)
+                # print('page: %d' % page)
+                page += 1
+                if not doNext : break
+            out.write('%s\t%s\n' %(link, str(commentsOpenPerWeek)))
         print ('link: %s' % link)
         for user in users.keys():
             print('%s\t%d' %(user, users[user]))
@@ -229,26 +280,27 @@ def dumpComments():
         mean = numpy.mean(users.values())
         sdev = numpy.std(users.values())
 
-        scores = [(user - mean)/(1.0*sdev) for user in users.values()]
+        scores = [(user - mean)/(1.0*sdev) for user in users.values() if user is not 'None']
         bad_smell = 0
         for score in scores:
             if score < -1.5 or score > 1.5:
                 bad_smell = 1
                 break
-        # if bad_smell:
-        #     print('Group %s has bad smell' % link)
-        groups[link] = (bad_smell, sum(users.values())*1.0/len(users.keys()))
-    # find_outlier_groups(groups)
+        print(str(issues.keys()))
+        issue_count = issues[link]
+        group_count = len(users.values()) if 'None' not in users.keys() else len(users.values())-1
+        none_count = users['None'] if 'None' in users else 0
+        groups[link] = (bad_smell, sum(users.values())*1.0/(issue_count*group_count))
+    find_outlier_groups(groups)
     max_sum = max([group[1] for group in groups.values()])
     print("group name\toutlier in group comments\ttotal comments")
     for link in groups:
         bad_smell2 = 1 - (groups[link][1]*1.0)/max_sum
-        # groups[link][1] = bad_smell2
         print("%s\t%f\t%f" %(link, groups[link][0], bad_smell2))
 
     
-    
 dumpComments()
+# dumpCommits()
 
 
     

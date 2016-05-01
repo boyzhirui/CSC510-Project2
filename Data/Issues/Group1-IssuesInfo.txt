@@ -1,0 +1,33 @@
+Groupname: /ankitkumar93/csc510-se-project 
+
+============================================================= 
+=======================Assignee================================
+=============================================================
+Uneven contribution on assigning issues,1
+Number of issues assigned to each person,{14206064: 4, 8457618: 2, 13740995: 3, 16613940: 2}
+
+=============================================================
+=======================ISSUES================================
+=============================================================
+Total number of issues,35 
+Issues last time,[7.2633, 3.39, 3.3475, 0.0769, 734.7533, 26.2036, 26.2289, 37.9422, 31.0717, 43.5925, 42.2278, 2.0108, 0.0086, 73.6689, 142.9367, 0.165, 75.4422, 29.0806, 29.7394, 104.9614, 199.1233, 66.6119, 67.5169, 80.9711, 149.5167, 210.7111, 360.3892, 503.8825, 499.9572, 215.0683, 211.1572, 367.8075]
+Issues opened per week,[0, 0, 0, 1, 6, 2, 12, 11, 0, 0, 0, 0, 0]
+Issues closed per week,[0, 0, 0, 0, 0, 4, 12, 15, 0, 0, 0, 1, 0]
+Unusual weekly activity of open too many issues or none issue,2
+Unusual weekly activity of close too many issues or none issue,2
+Number and percentage of Issues with unusually long or short  lasting time, 3 , 8% 
+Number of unclosed issues after April 9, 3 
+Number and percentage of issues closed after milestone deadline, 13 
+Number and Percentage of issues without comments, 18, 51% 
+ Number and Percentage of issues without milestone label, 10, 28% 
+Number and Percentage of issues without any label, 7, 20% 
+Number and Percentage of issues without assignee, 24, 68% 
+
+
+=============================================================
+=======================Labels================================
+=============================================================
+Total labels, 7 
+Amount of time each label lasting, {u'Text mining': [7.2633, 26.2036, 26.2289, 199.1233, 503.8825, 499.9572], u'front-end': [3.39, 3.3475, 37.9422, 2.0108], u'help wanted': [0.0769, 734.7533], u'data-collection': [inf, inf, inf, 29.0806, 29.7394, 104.9614, 66.6119, 67.5169, 149.5167, 215.0683, 211.1572], u'plugin-development': [0.165, 75.4422, 360.3892], u'proj1 feedback': [367.8075], u'enhancement': [210.7111]}
+Number of counts each label were used,{u'Text mining': 6, u'front-end': 4, u'help wanted': 2, u'data-collection': 11, u'plugin-development': 3, u'proj1 feedback': 1, u'enhancement': 1}
+Number of unused labels counts, 0 
