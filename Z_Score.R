@@ -7,7 +7,7 @@ z_score <- function(data){
 
 data = read.csv("totalCommits.txt",header = FALSE)
 test = as.matrix(data)
-for(i in 1:15){
+for(i in 1:14){
   t = as.vector(test[i,])
   t = t[!is.na(t)]
   res = z_score(t)
@@ -15,3 +15,6 @@ for(i in 1:15){
 }
 
 #paste(shQuote(res), collapse=", ")
+
+
+
